@@ -1,6 +1,6 @@
-# HS2 Electrical Ground Support Equipment (EGSE)
+# Charge/Discharge Cycle Program for Battery Tests
 
-The EGSE repository contains scripts for validating the functionality of HS-2's electrical system. To use the repository, first clone it and install the required dependencies:
+The repository contains scripts for testing battery packs. To use the repository, first clone it and install the required dependencies:
 
 ```
 pip install -r requirements.txt
@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ---
 ## Project Goals
 
-- Programmatically control a **DP800 Series Power Supply and a KEL103 electronic load**
+- Programmatically control a **DP800 Series Power Supply and a KEL103 Electronic Load**
 - Execute time-based charge-discharge schedules (e.g. CC or CP profiles)
 - Collect and log battery data (voltage, current, power, charge state)
 - Implement safety cutoffs for low-voltage conditions
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ## Software Overview
 
 - **Language:** Python
-- **Primary Libraries** [`py-kelctl`](https://pypi.org/project/py-kelctl/), [`pyvisa`](https://pypi.org/project/PyVISA/)
+- **Primary Libraries** [`py-kelctl`](https://pypi.org/project/py-kelctl/) and [`pyvisa`](https://pypi.org/project/PyVISA/)
 - **Data Format:** CSV
 
 The `py-kelctl` package provides a high-level Python interface to the KEL103, allowing control of:
@@ -62,7 +62,7 @@ python3 -m CircuitController/runCycles.py
 
 (On a non-Windows machine, `COM4` should be replaced with the serial port for that machine. On Linux, this may be `/dev/ttyACM0` or `/dev/ttyUSB0`)
 
-# Simulated Charging
+# Custom Charge/Discharge Cycles
 
 Coming soon...
 
