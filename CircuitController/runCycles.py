@@ -109,20 +109,20 @@ class BatteryCycle:
     def startStamp(self):
         self.csvData.append(self.load.model, self.model.)
         self.csvData.append()
-        self.csvData.append("time (s)", "current (A)", "voltage (V)", "power (W)", "Mode")
+        self.csvData.append("time (s)", "current (A)", "voltage (V)", "power (W)", "State")
 
     def recordData(self):
-        mode = ""
+        state = ""
         if (self.halfCycle % 2 == 1):
-            mode = "charging"
+            state = "charging"
         else:
-            mode = "discharging"
+            state = "discharging"
 
         self.csvData.append(str(time.time()-self.startTime), 
                             self.load.measured_current,
                             self.load.measured_voltage,
                             self.load.measured_power,
-                            mode
+                            state
                             )
 
     def writeOut(self):
