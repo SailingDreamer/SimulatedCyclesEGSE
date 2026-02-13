@@ -189,12 +189,12 @@ class BatteryCycle:
             time.sleep(1)
             
     def generateFileName(self):
-        return "logData" + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        return "logData" + datetime.datetime.now().strftime("%Y%m%d%H%M%S") + ".csv"
 
     def startStamp(self):
         self.csvData.append({self.load.model})
         self.csvData.append({})
-        self.csvData.append({"time (s)", "current (A)", "voltage (V)", "power (W)", "state"})
+        self.csvData.append({"time (s)", "current (A)", "voltage (V)", "power (W)", "state", "cycle num"})
 
     def recordData(self):
         state = ""
@@ -207,7 +207,8 @@ class BatteryCycle:
                             self.load.measured_current,
                             self.load.measured_voltage,
                             self.load.measured_power,
-                            state
+                            state,
+                            int(self.halfCycle/2)
                             })
 
     def writeOut(self):
